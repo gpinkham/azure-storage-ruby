@@ -23,6 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #--------------------------------------------------------------------------
+require "cgi"
 require "azure/storage/table/auth/shared_key"
 
 module Azure::Storage
@@ -746,7 +747,7 @@ module Azure::Storage
           value = value.gsub("'", "''")
 
           # Encode the special URL characters
-          value = URI.escape(value)
+          value = CGI.escape(value)
 
           value
         end
